@@ -1,0 +1,105 @@
+# Generated / huge / binaries — never push
+env/
+tmp/
+tmp_bsc/
+tmp_bsc_docs/
+wacli/
+bsc_digest_2026-04-27/
+.acpx/
+
+# ===== RUNTIME JUNK — NEVER COMMIT =====
+# These are generated at runtime and should never be committed.
+# If any are already tracked, use: git rm --cached <file>
+
+# Logs from scheduled jobs
+logs/cron/*.log
+logs/cron/*.supervisor.log
+
+# Send sentinels (track job execution)
+state/sent/
+
+# Draft storage from agent preview/send pipeline
+state/bsc-agent-drafts/
+
+# Heartbeat/proof-of-life files
+state/*heartbeat*
+state/bsc-os-cron-heartbeat
+state/bsc-fallback-supervisor-heartbeat
+
+# Mutable gateway/health check state
+state/gateway-outbound-healthcheck.json
+state/git-auto-sync.log
+
+# Mutable runtime state JSONs (these hold timestamps and job state)
+scripts/bsc-calendar-state.json
+scripts/bsc-monitor-state.json
+scripts/bsc-newsletter-cache.json
+scripts/bsc-urgent-alerts-state.json
+scripts/system-health-state.json
+
+# Daily memory logs (developers maintain their own session notes)
+memory/YYYY-MM-DD.md
+memory/20??-??.md
+
+# ===== OCPlatform / CREDENTIALS — NEVER COMMIT =====
+# Runtime databases & locks — runtime-only, not useful as diff
+state/bsc-monitor.db
+state/mempalace/
+state/locks/
+tools/crm.db
+agents/james-jr/tools/crm.db
+
+# Large per-message media caches if any
+data/media/
+data/downloads/
+data/cache/
+
+# OCPlatform internal config that might contain credentials
+.ocplatform/workspace-state.json
+.ocplatform/credentials*
+.ocplatform/*.token
+.ocplatform/*.secret
+
+# SSH key we just created — never commit
+.ssh/
+
+# ===== EDITOR / OS JUNK =====
+# Shell history / editor cruft
+.bash_history
+.zsh_history
+.python_history
+.viminfo
+*.swp
+*.swo
+*~
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Anything explicitly marked secret
+*.key
+*.pem
+*secret*
+*credentials*
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Backups & temp working files (incidental dev artifacts)
+*.bak
+*.bak-*
+*.bak.py
+*.tmp-*
+*.tmp-test
+*.tmp-force
+
+# MemPalace per-project config (was in original .gitignore — preserve)
+mempalace.yaml
+entities.json
+
+# nohup logs (raw stdout/stderr, not useful as diff)
+*.nohup.log
+*.nohup-*.log
