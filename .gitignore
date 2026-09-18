@@ -1,0 +1,29 @@
+# Secrets / live env
+hermes/env.sh
+**/.env
+**/.env.*
+!hermes/env.example
+CREDENTIALS.md
+**/*credentials*
+**/*secret*
+*.pem
+*.key
+*.token
+
+# Runtime
+logs/
+state/
+tmp/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+*.sqlite
+data/
+.env/
+node_modules/
+
+# WhatsApp / wacli session
+.wacli/
+.openclaw/
+.ocplatform/
