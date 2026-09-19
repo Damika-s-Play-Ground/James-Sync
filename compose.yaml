@@ -1,0 +1,26 @@
+name: ${COMPOSE_PROJECT_NAME:-james-local}
+
+services:
+  hermes:
+    build:
+      context: .
+      dockerfile: container/Dockerfile
+      args:
+        HERMES_IMAGE: ${HERMES_IMAGE:-nousresearch/hermes-agent@sha256:1071a9e60d3d6c445a3f81d2534823e8954ad5a10b130a4ceba71e5722529432}
+    image: ${JAMES_IMAGE:-james-hermes:local}
+    command: ["gateway", "run"]
+    init: true
+    stdin_open: true
+    tty: true
+    restart: "no"
+    environment:
+      HERMES_DASHBOARD: ${HERMES_DASHBOARD:-0}
+    ports:
+      - "127.0.0.1:${HERMES_GATEWAY_PORT:-8642}:8642"
+      - "127.0.0.1:${HERMES_DASHBOARD_PORT:-9119}:9119"
+    volumes:
+      - hermes-data:/opt/data
+
+volumes:
+  hermes-data:
+    name: ${HERMES_DATA_VOLUME:-james-hermes-data}
