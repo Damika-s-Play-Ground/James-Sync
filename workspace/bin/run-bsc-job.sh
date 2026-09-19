@@ -2,7 +2,7 @@
 set -u
 JOB_NAME="$1"
 shift
-DEV_GROUP="REDACTED_JID@g.us"
+DEV_GROUP="REDACTED_JID"
 WORKDIR="/opt/data/james-bsc-live-clean/data/.ocplatform/workspace"
 LOG_DIR="$WORKDIR/logs/cron"
 LOCK_DIR="$WORKDIR/state/locks"

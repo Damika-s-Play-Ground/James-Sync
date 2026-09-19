@@ -13,7 +13,7 @@
 set -u
 SENTINEL="/opt/data/james-bsc-live-clean/data/.ocplatform/workspace/state/supervisor/os-cron-heartbeat"
 STATE="/opt/data/james-bsc-live-clean/data/.ocplatform/workspace/state/deadman-state.json"
-DEV_GROUP="REDACTED_DEV_JID@g.us"
+DEV_GROUP="REDACTED_JID"
 MAX_AGE_SEC=600          # heartbeat writes every minute; 10 min stale = dead
 ALERT_EVERY_SEC=1800     # re-alert cadence while still dead
 

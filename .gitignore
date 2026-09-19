@@ -27,3 +27,8 @@ node_modules/
 .wacli/
 .openclaw/
 .ocplatform/
+
+# Freeze artifacts (kept outside Git)
+/james-runtime-backups/
+/james-freeze-keys/
+*.bundle.tgz
