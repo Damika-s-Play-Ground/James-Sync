@@ -41,3 +41,11 @@ docker compose run --rm hermes --help
 Hermes state is stored in the Docker-managed `james-hermes-data` volume, not
 in Git. WhatsApp pairing is deliberately deferred until the same image is
 deployed to EC2. See `container/README.md` for the local-to-EC2 workflow.
+
+## Donely freeze
+
+The 2026-09-19 Donely source mirror is tagged
+`donely-freeze-2026-09-19`. The encrypted runtime backup and restore
+instructions are documented in `docs/backup/SECURE_RUNTIME_BACKUP.md`;
+runtime secrets, WhatsApp state, databases, sessions, and media remain
+outside Git.
