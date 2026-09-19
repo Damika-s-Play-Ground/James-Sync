@@ -1,5 +1,8 @@
 services:
   hermes:
+    # Let Hermes's s6 supervisor own PID 1 so its dashboard service is started.
+    # The base Compose file enables Docker's init wrapper, which skips s6.
+    init: false
     env_file:
       - /opt/james/secrets/provider.env
     environment:
