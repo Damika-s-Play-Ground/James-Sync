@@ -1,0 +1,12 @@
+services:
+  hermes:
+    env_file:
+      - /opt/james/secrets/provider.env
+    environment:
+      JAMES_VALIDATE_CONFIG: "1"
+      CODEX_HOME: /opt/codex
+    restart: unless-stopped
+    volumes:
+      - /opt/james/data:/opt/data
+      - /opt/james/codex:/opt/codex
+
