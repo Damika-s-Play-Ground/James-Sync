@@ -17,7 +17,7 @@ MODE="${1:-}"
 shift || true
 
 WS="/opt/data/james-bsc-live-clean/data/.ocplatform/workspace"
-DEV="REDACTED_JID"
+DEV="${BSC_DEV_JID:-REDACTED_JID}"
 LOG_DIR="$WS/logs/cron"
 mkdir -p "$LOG_DIR"
 

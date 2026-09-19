@@ -12,7 +12,7 @@ DAEMON_WRAPPER="/opt/data/scripts/james-bsc-realtime-ingest.sh"
 mkdir -p "$(dirname "$PID_FILE")"
 
 alert_dev() {
-    wacli send text --to "REDACTED_JID" --message "$1" >/dev/null 2>&1 || true
+    wacli send text --to "${BSC_DEV_JID:-REDACTED_JID}" --message "$1" >/dev/null 2>&1 || true
 }
 
 is_running() {

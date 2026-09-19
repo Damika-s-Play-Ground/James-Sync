@@ -19,10 +19,10 @@ import sqlite3
 from datetime import datetime, timezone
 conn = sqlite3.connect('/opt/data/james-bsc-live-clean/data/.ocplatform/workspace/state/bsc-data.db')
 sources = {
-  'wa:120363282066464640': 'Sport & ECAs',
-  'wa:120363299144980489': 'Yr3 Parents',
-  'wa:120363298416272928': 'Junior School',
-  'wa:120363235029043943': 'Parent Community',
+  'wa:REDACTED_GROUP_ID': 'Sport & ECAs',
+  'wa:REDACTED_GROUP_ID': 'Yr3 Parents',
+  'wa:REDACTED_GROUP_ID': 'Junior School',
+  'wa:REDACTED_GROUP_ID': 'Parent Community',
 }
 now = datetime.now(timezone.utc)
 for src_id, name in sources.items():

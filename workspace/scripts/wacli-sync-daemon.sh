@@ -16,7 +16,7 @@ set -euo pipefail
 WORKSPACE="/opt/data/james-bsc-live-clean/data/.ocplatform/workspace"
 PID_FILE="$WORKSPACE/state/wacli-sync-daemon.pid"
 LOG_FILE="$WORKSPACE/logs/cron/wacli-sync-daemon.log"
-DEV_GROUP="REDACTED_JID"
+DEV_GROUP="${BSC_DEV_JID:-REDACTED_JID}"
 
 mkdir -p "$(dirname "$PID_FILE")" "$(dirname "$LOG_FILE")"
 

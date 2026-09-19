@@ -13,6 +13,14 @@ DB_PATH   = WORKSPACE / "state" / "bsc-data.db"
 ATT_DIR   = WORKSPACE / "state" / "bsc-attachments"
 LOG_DIR   = WORKSPACE / "logs" / "cron"
 DEV_GROUP = os.getenv("BSC_DEV_JID", "REDACTED_JID")
+YEAR4_JID = os.getenv("BSC_YEAR4_JID", "REDACTED_JID")
+JUNIOR_SCHOOL_JID = os.getenv("BSC_JUNIOR_SCHOOL_JID", "REDACTED_JID")
+SPORT_ECAS_JID = os.getenv("BSC_SPORT_ECAS_JID", "REDACTED_JID")
+PARENT_COMMUNITY_JID = os.getenv("BSC_PARENT_COMMUNITY_JID", "REDACTED_JID")
+YEAR4_SOURCE_ID = os.getenv("BSC_YEAR4_SOURCE_ID", "wa:REDACTED_GROUP_ID")
+JUNIOR_SCHOOL_SOURCE_ID = os.getenv("BSC_JUNIOR_SCHOOL_SOURCE_ID", "wa:REDACTED_GROUP_ID")
+SPORT_ECAS_SOURCE_ID = os.getenv("BSC_SPORT_ECAS_SOURCE_ID", "wa:REDACTED_GROUP_ID")
+PARENT_COMMUNITY_SOURCE_ID = os.getenv("BSC_PARENT_COMMUNITY_SOURCE_ID", "wa:REDACTED_GROUP_ID")
 
 logging.basicConfig(
     level=logging.INFO,
@@ -28,14 +36,14 @@ SOURCES = [
     # Same WhatsApp subgroup as last year; BSC renamed it from Yr3 2025/26 to Yr4 2026/27.
     # Keep the stable source id/JID so historical messages remain in one timeline, but update
     # source metadata and audience for the new academic year.
-    {"id": "wa:120363299144980489", "type": "whatsapp_group", "name": "BSC Yr4 Parents 2026/27",
-     "config": {"jid": "REDACTED_JID", "limit": 500}, "audience": "year4", "ttl_min": 0},
-    {"id": "wa:120363298416272928", "type": "whatsapp_group", "name": "BSC Junior School",
-     "config": {"jid": "REDACTED_JID", "limit": 500}, "audience": "junior_school", "ttl_min": 0},
-    {"id": "wa:120363282066464640", "type": "whatsapp_group", "name": "BSC Sport & ECAs",
-     "config": {"jid": "REDACTED_JID", "limit": 500}, "audience": "sport_ecas", "ttl_min": 0},
-    {"id": "wa:120363235029043943", "type": "whatsapp_group", "name": "BSC Parent Community",
-     "config": {"jid": "REDACTED_JID", "limit": 500}, "audience": "parent_community", "ttl_min": 0},
+    {"id": YEAR4_SOURCE_ID, "type": "whatsapp_group", "name": "BSC Yr4 Parents 2026/27",
+     "config": {"jid": YEAR4_JID, "limit": 500}, "audience": "year4", "ttl_min": 0},
+    {"id": JUNIOR_SCHOOL_SOURCE_ID, "type": "whatsapp_group", "name": "BSC Junior School",
+     "config": {"jid": JUNIOR_SCHOOL_JID, "limit": 500}, "audience": "junior_school", "ttl_min": 0},
+    {"id": SPORT_ECAS_SOURCE_ID, "type": "whatsapp_group", "name": "BSC Sport & ECAs",
+     "config": {"jid": SPORT_ECAS_JID, "limit": 500}, "audience": "sport_ecas", "ttl_min": 0},
+    {"id": PARENT_COMMUNITY_SOURCE_ID, "type": "whatsapp_group", "name": "BSC Parent Community",
+     "config": {"jid": PARENT_COMMUNITY_JID, "limit": 500}, "audience": "parent_community", "ttl_min": 0},
     {"id": "newsletter:week_ahead", "type": "newsletter", "name": "BSC Week Ahead Newsletter",
      "config": {}, "audience": "all", "ttl_min": 0},
 ]

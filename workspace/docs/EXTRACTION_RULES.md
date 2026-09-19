@@ -352,7 +352,7 @@ For EVERY candidate item from any source:
 
 ## Authority & Enforcement
 
-- **Authority:** Charitha (+94777725755) and Damika Anupama (+94764189999 / LID 180968598044733)
+- **Authority:** designated administrators (phone/LID values are kept in the protected runtime configuration)
 - **Scope:** These rules apply to ALL BSC School Assistant sends, all slots, all agent jobs
 - **No exceptions:** These are hard rules, not guidelines
 - **Saved/updated:** 2026-06-13

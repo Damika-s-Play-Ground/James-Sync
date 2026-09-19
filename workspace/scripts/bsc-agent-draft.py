@@ -11,9 +11,9 @@ from zoneinfo import ZoneInfo
 WS = pathlib.Path(os.environ.get('BSC_WORKSPACE', '/opt/data/james-bsc-live-clean/data/.ocplatform/workspace'))
 ROOT = WS / 'state' / 'bsc-agent-drafts'
 AUDIT_LOG = ROOT / 'audit.log'
-DEV = 'REDACTED_JID'
-PUBLIC = 'REDACTED_JID'
-ADMINS = {'REDACTED_JID', 'REDACTED_JID', 'REDACTED_JID'}
+DEV = os.getenv('BSC_DEV_JID', 'REDACTED_JID')
+PUBLIC = os.getenv('BSC_PUBLIC_JID', 'REDACTED_JID')
+ADMINS = {jid.strip() for jid in os.getenv('BSC_ADMIN_JIDS', '').split(',') if jid.strip()}
 HOLD_RE = re.compile(r'\b(hold|stop|reject|cancel|do not send|don.t send|wait)\b', re.I)
 APPROVE_RE = re.compile(r'^\s*(approve|approved|send|ok|okay|yes)\s*[.!✅👍]*\s*$', re.I)
 

@@ -13,7 +13,7 @@ WORKSPACE="/opt/data/james-bsc-live-clean/data/.ocplatform/workspace"
 PID_FILE="$WORKSPACE/state/wacli-sync-daemon.pid"
 LOG_FILE="$WORKSPACE/logs/cron/wacli-sync-daemon.log"
 WATCHDOG_STATE="$WORKSPACE/state/wacli-sync-watchdog.json"
-DEV_GROUP="REDACTED_JID"
+DEV_GROUP="${BSC_DEV_JID:-REDACTED_JID}"
 DAEMON_SCRIPT="$WORKSPACE/scripts/wacli-sync-daemon.sh"
 
 mkdir -p "$(dirname "$PID_FILE")" "$(dirname "$WATCHDOG_STATE")"
