@@ -1,0 +1,479 @@
+{
+  "jobs": [
+    {
+      "id": "366bec48baf2",
+      "name": "James BSC Data Sync",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-data-sync.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/45 * * * *",
+        "display": "*/45 * * * *"
+      },
+      "schedule_display": "*/45 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 1599
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-16T10:18:51.756682+00:00",
+      "next_run_at": "2026-09-18T19:45:00+00:00",
+      "last_run_at": "2026-09-18T19:00:34.527129+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "d1b2579188ac",
+      "name": "James BSC Public-Send Auditor",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-public-send-auditor.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/30 * * * *",
+        "display": "*/30 * * * *"
+      },
+      "schedule_display": "*/30 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 1600
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-16T10:18:59.524515+00:00",
+      "next_run_at": "2026-09-18T20:00:00+00:00",
+      "last_run_at": "2026-09-18T19:30:08.424800+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "f72eb7819623",
+      "name": "James wacli Sync Watchdog",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-wacli-sync-watchdog.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/5 * * * *",
+        "display": "*/5 * * * *"
+      },
+      "schedule_display": "*/5 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 9208
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-16T10:19:10.821839+00:00",
+      "next_run_at": "2026-09-18T19:35:00+00:00",
+      "last_run_at": "2026-09-18T19:30:08.768512+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "a65f34c51c1e",
+      "name": "James BSC Heartbeat",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-heartbeat.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "* * * * *",
+        "display": "* * * * *"
+      },
+      "schedule_display": "* * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 47162
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-16T10:19:16.835613+00:00",
+      "next_run_at": "2026-09-18T19:31:00+00:00",
+      "last_run_at": "2026-09-18T19:30:08.946039+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "c14efdb9d191",
+      "name": "James Gateway Outbound Healthcheck",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-gateway-outbound-healthcheck.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/30 * * * *",
+        "display": "*/30 * * * *"
+      },
+      "schedule_display": "*/30 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 1600
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-16T10:19:21.179372+00:00",
+      "next_run_at": "2026-09-18T20:00:00+00:00",
+      "last_run_at": "2026-09-18T19:30:09.342927+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "5271c7030031",
+      "name": "James BSC Send Slots",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-send-slots.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 * * * *",
+        "display": "30 * * * *"
+      },
+      "schedule_display": "30 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 650
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-22T17:33:38.683458+00:00",
+      "next_run_at": "2026-09-18T20:30:00+00:00",
+      "last_run_at": "2026-09-18T19:30:09.506182+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "c5cbe512892c",
+      "name": "James BSC Realtime Ingest",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-realtime-ingest.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "* * * * *",
+        "display": "* * * * *"
+      },
+      "schedule_display": "* * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 37692
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-23T03:50:51.495446+00:00",
+      "next_run_at": "2026-09-18T19:31:00+00:00",
+      "last_run_at": "2026-09-18T19:29:08.160657+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "569119def132",
+      "name": "James BSC New Data Auto-Send",
+      "prompt": "Run the new-data auto-send candidate processor in dry-run mode only.\n\nCommand:\n  source /opt/data/james-bsc-live-clean/hermes/env.sh && cd \"$BSC_WORKSPACE\" && python3 scripts/bsc-new-data-auto-send.py --db state/bsc-data.db --limit 50 --mode dry_run\n\nRules:\n- NEVER send to PUBLIC or DEV. This is dry-run only.\n- Do not call wacli. Do not send any WhatsApp messages.\n- Log summary to logs/cron/BSC_New_Data_Auto_Send.hermes.log via the wrapper script.\n- Output only the summary lines from the script.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-new-data-auto-send.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/5 * * * *",
+        "display": "*/5 * * * *"
+      },
+      "schedule_display": "*/5 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 7558
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-23T12:58:43.118866+00:00",
+      "next_run_at": "2026-09-18T19:35:00+00:00",
+      "last_run_at": "2026-09-18T19:25:04.719114+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "ef46491a843c",
+      "name": "James BSC Scheduled 6am Summary",
+      "prompt": "Script-only scheduled BSC 6am summary builder. Wrapper runs preflight py_compile, then PUBLIC mode with BSC_SCHEDULED_MODE=public and BSC_ALLOW_PUBLIC_AUTOSEND=1; public delivery is only via bsc-agent-safe-send.py and scheduled successful sends are recorded in auto_send_sent_log.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-scheduled-6am-summary.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 0 * * *",
+        "display": "30 0 * * *"
+      },
+      "schedule_display": "30 0 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 30
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-23T18:24:34.062356+00:00",
+      "next_run_at": "2026-09-19T00:30:00+00:00",
+      "last_run_at": "2026-09-18T00:30:35.835410+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "0948c63e3292",
+      "name": "James BSC Scheduled 3pm Reminder",
+      "prompt": "Script-only scheduled BSC 3pm next-day reminder builder. Wrapper runs preflight py_compile, then PUBLIC mode with BSC_SCHEDULED_MODE=public and BSC_ALLOW_PUBLIC_AUTOSEND=1; public delivery is only via bsc-agent-safe-send.py and scheduled successful sends are recorded in auto_send_sent_log.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-scheduled-3pm-reminder.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 9 * * *",
+        "display": "30 9 * * *"
+      },
+      "schedule_display": "30 9 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 28
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-23T18:24:35.077109+00:00",
+      "next_run_at": "2026-09-19T09:30:00+00:00",
+      "last_run_at": "2026-09-18T09:30:23.217064+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "0fd7ec8a70c6",
+      "name": "James BSC Scheduled Weekly Summary",
+      "prompt": "Script-only scheduled BSC Sunday weekly summary builder. Wrapper runs preflight py_compile, then PUBLIC mode with BSC_SCHEDULED_MODE=public and BSC_ALLOW_PUBLIC_AUTOSEND=1; public delivery is only via bsc-agent-safe-send.py and scheduled successful sends are recorded in auto_send_sent_log.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-scheduled-weekly-summary.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 9 * * 0",
+        "display": "30 9 * * 0"
+      },
+      "schedule_display": "30 9 * * 0",
+      "repeat": {
+        "times": null,
+        "completed": 5
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-23T18:24:36.086628+00:00",
+      "next_run_at": "2026-09-20T09:30:00+00:00",
+      "last_run_at": "2026-09-13T09:30:43.152129+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    },
+    {
+      "id": "be83969f5560",
+      "name": "James BSC Scheduled Healthcheck",
+      "prompt": "Script-only scheduled-job healthcheck. Runs /opt/data/scripts/james-bsc-scheduled-healthcheck.sh; healthy output is silent, failures print alerts and exit non-zero.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "james-bsc-scheduled-healthcheck.sh",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/30 * * * *",
+        "display": "*/30 * * * *"
+      },
+      "schedule_display": "*/30 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 1172
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-25T09:10:08.068625+00:00",
+      "next_run_at": "2026-09-18T20:00:00+00:00",
+      "last_run_at": "2026-09-18T19:00:38.875074+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": "/opt/data/james-bsc-live-clean/data/.ocplatform/workspace",
+      "profile": null
+    }
+  ],
+  "updated_at": "2026-09-18T19:30:09.507696+00:00"
+}
