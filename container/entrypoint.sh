@@ -11,6 +11,10 @@ if [[ "${JAMES_INIT_RUNTIME:-1}" == "1" ]]; then
     /opt/data/james-bsc-live-clean/logs/cron
 fi
 
+if [[ "${JAMES_VALIDATE_CONFIG:-0}" == "1" ]]; then
+  /opt/james/container/runtime-init.sh
+fi
+
 # Keep a direct provider smoke-test/maintenance command available without
 # bypassing the normal Hermes dispatcher for gateway/setup commands.
 if [[ "${1:-}" == "james-llm" ]]; then

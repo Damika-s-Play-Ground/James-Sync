@@ -36,6 +36,18 @@ Codex authentication belongs in the `codex-home` volume (or an explicitly
 mounted secret directory) and OpenRouter credentials are environment/secret
 values. The provider order is Codex first, OpenRouter fallback.
 
+Before enabling strict startup validation, pair/login Codex and set the
+OpenRouter key/model in the runtime secret store:
+
+```bash
+docker compose run --rm hermes james-llm --health
+JAMES_VALIDATE_CONFIG=1 docker compose up -d hermes
+```
+
+Strict validation is deliberately off in the example Compose file so a fresh
+image can be inspected before credentials are provisioned. The EC2 deployment
+profile enables it.
+
 Stop the container without deleting its state with `docker compose down`.
 Do not use `docker compose down -v` unless the local Hermes state is meant to
 be discarded.

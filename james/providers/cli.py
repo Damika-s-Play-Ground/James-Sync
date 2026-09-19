@@ -7,6 +7,7 @@ import json
 import logging
 import sys
 
+from .health import run_checks
 from .router import ProviderRouter
 from .types import ProviderError
 
@@ -16,12 +17,18 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("prompt", nargs="?", help="user prompt; stdin is used when omitted")
     parser.add_argument("--system", default="You are a concise, helpful James assistant.")
     parser.add_argument("--json", action="store_true", dest="as_json")
+    parser.add_argument("--health", action="store_true", help="print non-invasive provider health JSON")
+    parser.add_argument("--strict", action="store_true", help="with --health, fail on missing required config")
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(message)s")
     args = build_parser().parse_args(argv)
+    if args.health:
+        report = run_checks()
+        print(json.dumps(report, indent=2))
+        return 1 if args.strict and not report["ok"] else 0
     prompt = args.prompt if args.prompt is not None else sys.stdin.read()
     if not prompt.strip():
         print("prompt is empty", file=sys.stderr)
@@ -46,4 +53,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

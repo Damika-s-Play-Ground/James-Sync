@@ -25,7 +25,8 @@ COPY host-scripts /opt/james/host-scripts
 COPY cron /opt/james/cron
 COPY container/james-llm /opt/james/bin/james-llm
 COPY container/entrypoint.sh /opt/james/entrypoint.sh
-RUN chmod 0755 /opt/james/bin/james-llm /opt/james/entrypoint.sh \
+COPY container/runtime-init.sh /opt/james/container/runtime-init.sh
+RUN chmod 0755 /opt/james/bin/james-llm /opt/james/entrypoint.sh /opt/james/container/runtime-init.sh \
     && python3 -m compileall -q /opt/james/james
 
 ENTRYPOINT ["/opt/james/entrypoint.sh"]
