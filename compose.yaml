@@ -7,6 +7,7 @@ services:
       dockerfile: container/Dockerfile
       args:
         HERMES_IMAGE: ${HERMES_IMAGE:-nousresearch/hermes-agent@sha256:1071a9e60d3d6c445a3f81d2534823e8954ad5a10b130a4ceba71e5722529432}
+        CODEX_VERSION: ${CODEX_VERSION:-0.155.1}
     image: ${JAMES_IMAGE:-james-hermes:local}
     command: ["gateway", "run"]
     init: true
@@ -15,12 +16,32 @@ services:
     restart: "no"
     environment:
       HERMES_DASHBOARD: ${HERMES_DASHBOARD:-0}
+      JAMES_INIT_RUNTIME: ${JAMES_INIT_RUNTIME:-1}
+      CODEX_HOME: ${CODEX_HOME:-/opt/codex}
+      CODEX_MODEL: ${CODEX_MODEL:-gpt-5.6-sol}
+      CODEX_TIMEOUT_SECONDS: ${CODEX_TIMEOUT_SECONDS:-180}
+      JAMES_LLM_FALLBACK_ENABLED: ${JAMES_LLM_FALLBACK_ENABLED:-1}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      OPENROUTER_MODEL: ${OPENROUTER_MODEL:-}
+      OPENROUTER_BASE_URL: ${OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}
+      OPENROUTER_TIMEOUT_SECONDS: ${OPENROUTER_TIMEOUT_SECONDS:-60}
+      OPENROUTER_SITE_URL: ${OPENROUTER_SITE_URL:-}
+      OPENROUTER_APP_NAME: ${OPENROUTER_APP_NAME:-James}
     ports:
       - "127.0.0.1:${HERMES_GATEWAY_PORT:-8642}:8642"
       - "127.0.0.1:${HERMES_DASHBOARD_PORT:-9119}:9119"
     volumes:
       - hermes-data:/opt/data
+      - codex-home:/opt/codex
+
+    healthcheck:
+      test: ["CMD", "james-llm", "--help"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
 volumes:
   hermes-data:
     name: ${HERMES_DATA_VOLUME:-james-hermes-data}
+  codex-home:
+    name: ${CODEX_HOME_VOLUME:-james-codex-home}

@@ -1,9 +1,10 @@
 # Local Hermes container
 
-This is the first container milestone for James. The image contains the
-upstream Hermes runtime; mutable state is kept in the named `hermes-data`
-volume. The WhatsApp linked-device session, provider credentials, databases,
-logs, and media are intentionally not part of Git or the image.
+The image contains the pinned upstream Hermes runtime, the versioned James
+workspace, and the Codex/OpenRouter provider adapter. Mutable state is kept in
+the named `hermes-data` and `codex-home` volumes. The WhatsApp linked-device
+session, provider credentials, databases, logs, and media are intentionally not
+part of Git or the image.
 
 ## Build and smoke-test
 
@@ -13,6 +14,7 @@ From the repository root:
 docker compose build
 docker compose run --rm hermes --help
 docker compose run --rm hermes --version
+docker compose run --rm hermes james-llm --help
 ```
 
 `setup` is optional at this stage. If provider credentials are available,
@@ -29,6 +31,10 @@ been completed with a test provider configuration:
 docker compose up -d hermes
 docker compose logs -f hermes
 ```
+
+Codex authentication belongs in the `codex-home` volume (or an explicitly
+mounted secret directory) and OpenRouter credentials are environment/secret
+values. The provider order is Codex first, OpenRouter fallback.
 
 Stop the container without deleting its state with `docker compose down`.
 Do not use `docker compose down -v` unless the local Hermes state is meant to
