@@ -16,6 +16,10 @@ REDACTED_IP. Live values must be supplied through the protected runtime
 environment (hermes/env.sh, .env, or an AWS secret store); do not restore
 them by editing Git files.
 
+The BSC source/group identifiers and administrator list are also supplied
+through the BSC_*_JID, BSC_*_SOURCE_ID, and BSC_ADMIN_JIDS environment
+variables shown in hermes/env.example.
+
 Excluded deliberately:
 
 - WhatsApp authentication/stores (.wacli, wacli);
