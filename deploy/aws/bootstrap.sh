@@ -43,11 +43,10 @@ fi
 
 install -d -m 0750 "$APP_ROOT" "$APP_ROOT/secrets" "$APP_ROOT/data" "$APP_ROOT/codex" "$APP_ROOT/backups"
 if [[ ! -d "$APP_ROOT/app/.git" ]]; then
-  git clone --depth 1 --branch "$REF" "$REPO_URL" "$APP_ROOT/app"
-else
-  git -C "$APP_ROOT/app" fetch --depth 1 origin "$REF"
-  git -C "$APP_ROOT/app" checkout --detach "FETCH_HEAD"
+  git clone --no-checkout "$REPO_URL" "$APP_ROOT/app"
 fi
+git -C "$APP_ROOT/app" fetch --depth 1 origin "$REF"
+git -C "$APP_ROOT/app" checkout --detach "FETCH_HEAD"
 
 if [[ ! -f "$APP_ROOT/secrets/compose.env" ]]; then
   install -m 0600 "$APP_ROOT/app/compose.env.example" "$APP_ROOT/secrets/compose.env"
