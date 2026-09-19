@@ -36,3 +36,17 @@ not delete WhatsApp/runtime state. The systemd unit restarts the gateway after
 host reboot. Strict provider validation blocks startup until Codex auth and
 OpenRouter fallback settings are present.
 
+## Runtime restore
+
+The encrypted freeze is copied to `/opt/james/backups/20260919/`. After
+provisioning a short-lived `/opt/james/secrets/runtime-aes.key` (32 raw bytes),
+run:
+
+```bash
+sudo bash /opt/james/app/deploy/aws/restore-runtime.sh
+sudo rm -f /opt/james/secrets/runtime-aes.key
+```
+
+The script verifies the bundle hash, decrypts only in a mode-0700 temporary
+directory, extracts into the persistent data directory, and removes the
+temporary archive on exit. The RSA recipient private key remains off-host.
