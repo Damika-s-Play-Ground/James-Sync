@@ -8,6 +8,8 @@ services:
       args:
         HERMES_IMAGE: ${HERMES_IMAGE:-nousresearch/hermes-agent@sha256:1071a9e60d3d6c445a3f81d2534823e8954ad5a10b130a4ceba71e5722529432}
         CODEX_VERSION: ${CODEX_VERSION:-0.155.1}
+        WACLI_VERSION: ${WACLI_VERSION:-0.18.2}
+        WACLI_SHA256: ${WACLI_SHA256:-d33e8cc4b01acbd4e1ba212e22ac9c6438221e0761112dd3e7a2cc30b3a5946f}
     image: ${JAMES_IMAGE:-james-hermes:local}
     command: ["gateway", "run"]
     init: true
@@ -28,6 +30,8 @@ services:
       OPENROUTER_TIMEOUT_SECONDS: ${OPENROUTER_TIMEOUT_SECONDS:-60}
       OPENROUTER_SITE_URL: ${OPENROUTER_SITE_URL:-}
       OPENROUTER_APP_NAME: ${OPENROUTER_APP_NAME:-James}
+      WACLI_STORE_DIR: ${WACLI_STORE_DIR:-/opt/data/james-bsc-live-clean/data/.wacli}
+      WACLI_STORE: ${WACLI_STORE:-/opt/data/james-bsc-live-clean/data/.wacli}
     ports:
       - "127.0.0.1:${HERMES_GATEWAY_PORT:-8642}:8642"
       - "127.0.0.1:${HERMES_DASHBOARD_PORT:-9119}:9119"

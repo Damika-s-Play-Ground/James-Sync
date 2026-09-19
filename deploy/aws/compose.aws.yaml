@@ -5,8 +5,9 @@ services:
     environment:
       JAMES_VALIDATE_CONFIG: "1"
       CODEX_HOME: /opt/codex
+      WACLI_STORE_DIR: /opt/data/james-bsc-live-clean/data/.wacli
+      WACLI_STORE: /opt/data/james-bsc-live-clean/data/.wacli
     restart: unless-stopped
     volumes:
       - /opt/james/data:/opt/data
       - /opt/james/codex:/opt/codex
-

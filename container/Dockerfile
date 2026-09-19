@@ -8,6 +8,17 @@ ARG CODEX_VERSION=0.155.1
 RUN npm install --global --no-fund --no-audit "@openai/codex@${CODEX_VERSION}" \
     && npm cache clean --force
 
+ARG WACLI_VERSION=0.18.2
+ARG WACLI_SHA256=d33e8cc4b01acbd4e1ba212e22ac9c6438221e0761112dd3e7a2cc30b3a5946f
+RUN curl --fail --location --silent --show-error \
+      "https://github.com/openclaw/wacli/releases/download/v${WACLI_VERSION}/wacli_${WACLI_VERSION}_linux_amd64.tar.gz" \
+      --output /tmp/wacli.tar.gz \
+    && echo "${WACLI_SHA256}  /tmp/wacli.tar.gz" | sha256sum -c - \
+    && mkdir -p /tmp/wacli \
+    && tar -xzf /tmp/wacli.tar.gz -C /tmp/wacli \
+    && install -m 0755 /tmp/wacli/wacli /usr/local/bin/wacli \
+    && rm -rf /tmp/wacli /tmp/wacli.tar.gz
+
 LABEL org.opencontainers.image.title="James Hermes runtime"
 LABEL org.opencontainers.image.description="Pinned Hermes runtime plus James provider/runtime code"
 LABEL org.opencontainers.image.source="https://github.com/Damika-s-Play-Ground/James-Sync"

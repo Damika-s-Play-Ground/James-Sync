@@ -1,7 +1,8 @@
 # Local Hermes container
 
-The image contains the pinned upstream Hermes runtime, the versioned James
-workspace, and the Codex/OpenRouter provider adapter. Mutable state is kept in
+The image contains the pinned upstream Hermes runtime, the pinned `wacli`
+WhatsApp CLI, the versioned James workspace, and the Codex/OpenRouter provider
+adapter. Mutable state is kept in
 the named `hermes-data` and `codex-home` volumes. The WhatsApp linked-device
 session, provider credentials, databases, logs, and media are intentionally not
 part of Git or the image.
@@ -35,6 +36,10 @@ docker compose logs -f hermes
 Codex authentication belongs in the `codex-home` volume (or an explicitly
 mounted secret directory) and OpenRouter credentials are environment/secret
 values. The provider order is Codex first, OpenRouter fallback.
+
+The AWS profile pins `wacli` 0.18.2 and points it at the restored
+`james-bsc-live-clean/data/.wacli` store. Upgrade that version deliberately and
+review its release/checksum before rebuilding.
 
 Before enabling strict startup validation, pair/login Codex and set the
 OpenRouter key/model in the runtime secret store:
