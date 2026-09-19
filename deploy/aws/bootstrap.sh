@@ -17,7 +17,12 @@ if [[ "$(id -u)" != "0" ]]; then
   exit 1
 fi
 
-dnf install -y git curl ca-certificates jq openssl
+dnf install -y git ca-certificates jq openssl
+if ! command -v curl >/dev/null 2>&1; then
+  # Amazon Linux commonly ships curl-minimal; avoid replacing it with the
+  # conflicting full curl package.
+  dnf install -y curl-minimal
+fi
 systemctl enable --now docker
 
 plugin_dir=/usr/local/lib/docker/cli-plugins
@@ -61,4 +66,3 @@ echo "Secrets staged at $APP_ROOT/secrets; edit them before strict startup."
 if [[ "$AUTO_START" == "1" ]]; then
   systemctl start james.service
 fi
-
