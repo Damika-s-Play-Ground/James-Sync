@@ -20,6 +20,8 @@ Set `CODEX_MODEL`, `OPENROUTER_MODEL`, and the OpenRouter key in
 Codex inside the persistent volume with `docker compose run --rm hermes codex
 login` or the supported access-token flow. Do not commit either file.
 
+For a hidden key prompt, run `sudo bash /opt/james/app/deploy/aws/set-openrouter-key.sh`.
+
 ## Deploy/update
 
 ```bash
@@ -29,6 +31,29 @@ docker compose -f /opt/james/app/compose.yaml \
   -f /opt/james/app/deploy/aws/compose.aws.yaml \
   --env-file /opt/james/secrets/compose.env logs --tail=100 hermes
 ```
+
+After both provider credentials are present, run:
+
+```bash
+sudo bash /opt/james/app/deploy/aws/verify.sh
+```
+
+To log Codex into the persistent volume, start an SSM session from your local
+machine, then run the direct-entrypoint login command in that session:
+
+```powershell
+aws ssm start-session --profile james-temp-admin --region us-east-1 --target i-0664eb3e27700fdb0
+```
+
+```bash
+sudo docker compose -f /opt/james/app/compose.yaml \
+  -f /opt/james/app/deploy/aws/compose.aws.yaml \
+  --env-file /opt/james/secrets/compose.env \
+  run --rm --no-deps --entrypoint /usr/local/bin/codex hermes login
+```
+
+Complete the ChatGPT/Codex browser flow shown by the CLI. The login is stored
+only in `/opt/james/codex`.
 
 The Compose override binds `/opt/james/data` to `/opt/data` and `/opt/james/codex`
 to `/opt/codex`, so replacing the image or checking out another Git commit does
